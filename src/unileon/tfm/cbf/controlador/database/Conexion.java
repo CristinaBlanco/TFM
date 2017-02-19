@@ -1,4 +1,4 @@
-package unileon.tfm.cbf.unileon.tfm.cbf.database;
+package unileon.tfm.cbf.controlador.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ * Esta clase se encarga de conectar, desconectar y enviar consultas a la base de datos.
  * Created by Cristina Blanco Fernandez.
  */
 public class Conexion {

@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="edisoncorSX">
+  <library name="edisoncor">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../Dropbox/TFM/librerias/edisoncorSX.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/edisoncorSX.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
