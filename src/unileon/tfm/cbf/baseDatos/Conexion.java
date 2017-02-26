@@ -1,4 +1,4 @@
-package unileon.tfm.cbf.controlador.database;
+package unileon.tfm.cbf.baseDatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

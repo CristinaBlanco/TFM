@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="55858462-5cd9-4e16-b68b-2075d59b2094">
+        <schema name="TFM" object-types="column, constraint, index, materialized view, nested table, table, dataset trigger, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="55858462-5cd9-4e16-b68b-2075d59b2094">
@@ -37,6 +41,11 @@ from
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-list connection-id="55858462-5cd9-4e16-b68b-2075d59b2094" dataset="APEX_040000.WWV_FLOW_DUAL100" active-filter-id="" />
     <filter-list connection-id="55858462-5cd9-4e16-b68b-2075d59b2094" dataset="TFM.PRUEBAS" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="55858462-5cd9-4e16-b68b-2075d59b2094" dataset="TFM.USUARIOS" active-filter-id="">
+      <filter id="a96ece7b-2fd3-4244-832c-86ac8921e163" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="CATEGORIA" operator="=" value="" active="true" />
+      </filter>
+    </filter-list>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -54,11 +63,7 @@ from
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
-    <filters>
-      <filter connection-id="55858462-5cd9-4e16-b68b-2075d59b2094" schema="" object-type="schema" join-type="AND">
-        <condition operator="EQUAL" pattern="TFM" active="true" />
-      </filter>
-    </filters>
+    <filters />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
     <recently-used-interfaces />
@@ -137,7 +142,11 @@ from
             <object-type name="CLUSTER" enabled="true" />
             <object-type name="DBLINK" enabled="true" />
           </object-type-filter>
-          <object-name-filters />
+          <object-name-filters>
+            <filter join-type="AND" object-type="schema">
+              <simple-condition operator="EQUAL" text="TFM" />
+            </filter>
+          </object-name-filters>
         </object-filters>
       </connection>
     </connections>
@@ -271,8 +280,6 @@ from
           <content-type name="Java" enabled="true" />
           <content-type name="SQL" enabled="true" />
           <content-type name="PL/SQL" enabled="true" />
-          <content-type name="Groovy" enabled="true" />
-          <content-type name="AIDL" enabled="true" />
           <content-type name="YAML" enabled="true" />
           <content-type name="Manifest" enabled="true" />
         </content-types>
