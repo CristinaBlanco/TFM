@@ -99,11 +99,7 @@
         </default-constraints>
       </item>
     </group>
-    <group name="Edisoncor">
-      <item class="org.edisoncor.gui.button.ButtonAero" icon="/com/intellij/uiDesigner/icons/button.png" removable="true" auto-create-binding="false" can-attach-label="false">
-        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="0" />
-      </item>
-    </group>
+    <group name="Edisoncor" />
     <group name="Swing Contenedores">
       <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.png" removable="false" auto-create-binding="false" can-attach-label="false">
         <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />

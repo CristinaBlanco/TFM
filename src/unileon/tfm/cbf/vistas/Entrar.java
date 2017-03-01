@@ -19,18 +19,16 @@ public class Entrar extends JDialog {
     private JPanel panelSeparador;
     private JButton btnAyuda;
     private JPanel panelAyuda;
-
+    private String usuarioSelecc;
     private String[][] usuarios;
 
     public Entrar() {
         this.setContentPane(contenedor);
         //para que la nueva ventana siempre quede encima
-        this.setModal(true);
+        //this.setModal(true);
         getRootPane().setDefaultButton(btnEntrar);
-
         this.setLocationRelativeTo(null);
         this.pack();
-
 
         rellenarComboUsuarios();
 
@@ -62,6 +60,14 @@ public class Entrar extends JDialog {
         this.setVisible(true);
     }
 
+    public String getUsuarioSelecc() {
+        return usuarioSelecc;
+    }
+
+    public void setUsuarioSelecc(String usuarioSelecc) {
+        this.usuarioSelecc = usuarioSelecc;
+    }
+
     private void onBotonAyuda() {
         CrearAyuda vnAyuda = new CrearAyuda();
         vnAyuda.crearAyuda(this.btnAyuda);
@@ -80,20 +86,23 @@ public class Entrar extends JDialog {
     }
 
     private void onEntrar() {
-        dispose();
         boolean puedeEntrar = false;
         String contrasenia = new String(this.cmpoContrasenia.getPassword());
-        String usuarioSelecc = this.comboUsuario.getSelectedItem().toString();
+        this.setUsuarioSelecc(this.comboUsuario.getSelectedItem().toString());
 
         for(int i = 0; i < this.usuarios.length; i++) {
             if (usuarioSelecc == this.usuarios[i][0] && contrasenia.equals(this.usuarios[i][1])) {
                 //entramos a la siguiente ventana que es la generica
                 puedeEntrar = true;
+                Principal principal = new Principal();
+                principal.setVisible(true);
+                this.dispose();
             }
         }
 
         if(!puedeEntrar) {
             JOptionPane.showMessageDialog(this, "Combinacion de usuario y contrasenia incorrecta.");
+            this.cmpoContrasenia.setText("");
         }
     }
 

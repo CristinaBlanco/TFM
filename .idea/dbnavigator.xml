@@ -23,11 +23,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="55858462-5cd9-4e16-b68b-2075d59b2094">
-        <schema name="TFM" object-types="column, constraint, index, materialized view, nested table, table, dataset trigger, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="55858462-5cd9-4e16-b68b-2075d59b2094">
