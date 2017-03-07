@@ -1,15 +1,13 @@
 package unileon.tfm.cbf.vistas;
 
 import unileon.tfm.cbf.controladores.PrincipalControlador;
+import unileon.tfm.cbf.vistas.internas.FormularioInternoPruebas;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicDesktopPaneUI;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
 
 
 /**
@@ -35,8 +33,6 @@ public class Principal extends JFrame {
     private JButton button12;
     private JFormattedTextField campoFecha;
     private JFormattedTextField formattedTextField1;
-    private JDesktopPane panelCentral;
-
 
     public Principal() {
         super("Cascanueces");
@@ -98,17 +94,16 @@ public class Principal extends JFrame {
     }
 
     private void panelCentralRellenar(){
-        this.panelCentral = new JDesktopPane();
+        JDesktopPane panelCentral = new JDesktopPane();
+        this.getContentPane().add(panelCentral);
 
         FormularioInternoPruebas form = new FormularioInternoPruebas();
 
-        form.setClosable(true);
-        form.setIconifiable(true);
+        form.setClosable(false);
+
         form.toFront();
         form.setVisible(true);
-        this.panelCentral.add(form);
-        this.panelCentral.setBackground(Color.BLUE);
-        //this.panelCentral.setVisible(true);
+        panelCentral.add(form);
     }
 
 }

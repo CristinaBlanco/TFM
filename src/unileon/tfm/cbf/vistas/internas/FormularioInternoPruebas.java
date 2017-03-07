@@ -1,4 +1,4 @@
-package unileon.tfm.cbf.vistas;
+package unileon.tfm.cbf.vistas.internas;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -12,12 +12,16 @@ public class FormularioInternoPruebas extends JInternalFrame{
     private JButton botonInterno;
 
     public FormularioInternoPruebas() {
-        /*BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
+        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
         bi.setNorthPane(null);
-        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));*/
+       // this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.setContentPane(this.panelCentral);
         this.botonInterno.setText("hola efectivamente es el panel interno");
-                System.out.println("Estoy en el interno");
+
+                this.botonInterno.setVisible(true);
+        this.pack();
         this.setVisible(true);
+
     }
 
 }
