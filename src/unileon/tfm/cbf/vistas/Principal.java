@@ -3,6 +3,7 @@ package unileon.tfm.cbf.vistas;
 import unileon.tfm.cbf.controladores.PrincipalControlador;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicDesktopPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +36,6 @@ public class Principal extends JFrame {
     private JFormattedTextField campoFecha;
     private JFormattedTextField formattedTextField1;
     private JDesktopPane panelCentral;
-    private JButton estoyEnElPanelButton;
 
 
     public Principal() {
@@ -98,15 +98,17 @@ public class Principal extends JFrame {
     }
 
     private void panelCentralRellenar(){
-        JInternalFrame internal = new JInternalFrame();
-        internal.pack();
-        JPanel panelDentroInternal = new JPanel();
-
-        JButton a = new JButton("estoy en el internalFrame");
-        panelDentroInternal.add(a);
-        internal.add(panelDentroInternal);
         this.panelCentral = new JDesktopPane();
-        this.panelCentral.add(internal);
+
+        FormularioInternoPruebas form = new FormularioInternoPruebas();
+
+        form.setClosable(true);
+        form.setIconifiable(true);
+        form.toFront();
+        form.setVisible(true);
+        this.panelCentral.add(form);
+        this.panelCentral.setBackground(Color.BLUE);
+        //this.panelCentral.setVisible(true);
     }
 
 }
