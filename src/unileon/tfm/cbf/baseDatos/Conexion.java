@@ -26,7 +26,7 @@ public class Conexion {
                 this.conexion = DriverManager.getConnection(BaseDeDatos, "TFM", "cbf");
                 conectado = true;
             } catch (ClassNotFoundException | SQLException e) {
-                System.out.println("No se puede conectar: ");
+                System.out.println("No se puede conectar: " + e);
             }
         } else {
             System.out.println("Ya existe una conexión.");

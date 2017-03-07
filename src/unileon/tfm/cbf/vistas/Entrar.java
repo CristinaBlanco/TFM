@@ -4,6 +4,7 @@ import unileon.tfm.cbf.ayuda.CrearAyuda;
 import unileon.tfm.cbf.baseDatos.Consultas.ConsultasSeleccionar;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class Entrar extends JDialog {
@@ -55,7 +56,9 @@ public class Entrar extends JDialog {
 
         btnAyuda.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) { onBotonAyuda();}
+            public void actionPerformed(ActionEvent e) {
+                onBotonAyuda();
+            }
         });
         this.setVisible(true);
     }
@@ -80,7 +83,7 @@ public class Entrar extends JDialog {
         consulta.desconectar();
 
         //se aniaden los usuarios al combobox
-        for(int i = 0; i < this.usuarios.length; i++){
+        for (int i = 0; i < this.usuarios.length; i++) {
             this.comboUsuario.addItem(this.usuarios[i][0]);
         }
     }
@@ -90,7 +93,7 @@ public class Entrar extends JDialog {
         String contrasenia = new String(this.cmpoContrasenia.getPassword());
         this.setUsuarioSelecc(this.comboUsuario.getSelectedItem().toString());
 
-        for(int i = 0; i < this.usuarios.length; i++) {
+        for (int i = 0; i < this.usuarios.length; i++) {
             if (usuarioSelecc == this.usuarios[i][0] && contrasenia.equals(this.usuarios[i][1])) {
                 //entramos a la siguiente ventana que es la generica
                 puedeEntrar = true;
@@ -100,7 +103,7 @@ public class Entrar extends JDialog {
             }
         }
 
-        if(!puedeEntrar) {
+        if (!puedeEntrar) {
             JOptionPane.showMessageDialog(this, "Combinacion de usuario y contrasenia incorrecta.");
             this.cmpoContrasenia.setText("");
         }
@@ -109,4 +112,5 @@ public class Entrar extends JDialog {
     private void onCancelar() {
         System.exit(0);
     }
+
 }

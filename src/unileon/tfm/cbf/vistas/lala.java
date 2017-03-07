@@ -1,12 +1,14 @@
 package unileon.tfm.cbf.vistas;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by Cristina Blanco Fernandez.
  */
-public class lala{
+public class lala {
     private JPanel panel;
+
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frame.setContentPane(new lala().panel);
