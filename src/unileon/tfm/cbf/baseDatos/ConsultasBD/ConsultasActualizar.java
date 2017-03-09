@@ -1,4 +1,4 @@
-package unileon.tfm.cbf.baseDatos.Consultas;
+package unileon.tfm.cbf.baseDatos.ConsultasBD;
 
 import unileon.tfm.cbf.baseDatos.Conexion;
 

@@ -1,13 +1,12 @@
 package unileon.tfm.cbf.vistas;
 
 import unileon.tfm.cbf.ayuda.CrearAyuda;
-import unileon.tfm.cbf.baseDatos.Consultas.ConsultasSeleccionar;
+import unileon.tfm.cbf.baseDatos.ConsultasBD.ConsultasSeleccionar;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
-public class Entrar extends JDialog {
+public class Acceso extends JDialog {
     private JPanel contenedor;
     private JButton btnEntrar;
     private JButton btnCancelar;
@@ -23,7 +22,7 @@ public class Entrar extends JDialog {
     private String usuarioSelecc;
     private String[][] usuarios;
 
-    public Entrar() {
+    public Acceso() {
         this.setContentPane(contenedor);
         //para que la nueva ventana siempre quede encima
         //this.setModal(true);

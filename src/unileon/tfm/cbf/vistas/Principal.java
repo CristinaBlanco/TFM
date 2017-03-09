@@ -1,7 +1,7 @@
 package unileon.tfm.cbf.vistas;
 
 import unileon.tfm.cbf.controladores.PrincipalControlador;
-import unileon.tfm.cbf.vistas.internas.FormularioInternoPruebas;
+import unileon.tfm.cbf.vistas.internas.consultasCaja.ConsultarEmpleados;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -55,7 +55,7 @@ public class Principal extends JFrame {
         });
 
         rellenarDatos();
-        panelCentralRellenar();
+        rellenarPanelCentral();
         this.setVisible(true);
     }
 
@@ -93,11 +93,12 @@ public class Principal extends JFrame {
         this.setJMenuBar(barraMenu);
     }
 
-    private void panelCentralRellenar(){
+    private void rellenarPanelCentral(){
         JDesktopPane panelCentral = new JDesktopPane();
         this.getContentPane().add(panelCentral);
 
-        FormularioInternoPruebas form = new FormularioInternoPruebas();
+        //FormularioInternoPruebas form = new FormularioInternoPruebas();
+        ConsultarEmpleados form = new ConsultarEmpleados();
 
         form.setClosable(false);
 
