@@ -19,10 +19,12 @@ public class Acceso extends JDialog {
     private JPanel panelSeparador;
     private JButton btnAyuda;
     private JPanel panelAyuda;
+
     private String usuarioSelecc;
     private String[][] usuarios;
 
     public Acceso() {
+        this.setTitle("Acceso");
         this.setContentPane(contenedor);
         //para que la nueva ventana siempre quede encima
         //this.setModal(true);

@@ -4,6 +4,7 @@ import unileon.tfm.cbf.controladores.PrincipalControlador;
 import unileon.tfm.cbf.vistas.internas.consultasCaja.ConsultarEmpleados;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -95,13 +96,12 @@ public class Principal extends JFrame {
 
     private void rellenarPanelCentral(){
         JDesktopPane panelCentral = new JDesktopPane();
+        panelCentral.setBackground(Color.gray);
         this.getContentPane().add(panelCentral);
 
         //FormularioInternoPruebas form = new FormularioInternoPruebas();
         ConsultarEmpleados form = new ConsultarEmpleados();
-
         form.setClosable(false);
-
         form.toFront();
         form.setVisible(true);
         panelCentral.add(form);

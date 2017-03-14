@@ -5,17 +5,27 @@
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <autoscrolls value="true"/>
+    </properties>
     <border type="none"/>
     <children>
-      <component id="3bc90" class="javax.swing.JTable" binding="tablaEmpleados">
+      <scrollpane id="8796d">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
-      </component>
+        <border type="none"/>
+        <children>
+          <component id="3bc90" class="javax.swing.JTable" binding="tablaEmpleados">
+            <constraints/>
+            <properties>
+              <foreground color="-16710138"/>
+              <gridColor color="-11711668"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
 </form>
