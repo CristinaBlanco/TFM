@@ -1,6 +1,6 @@
-package unileon.tfm.cbf.baseDatos.ConsultasBD;
+package bbdd.consultas;
 
-import unileon.tfm.cbf.baseDatos.Conexion;
+import bbdd.Conexion;
 
 /** //TODO ordenar por tablas por ejemplo
  * Esta clase se utiliza para enviar las sentencias de seleccionar datos de la base de datos.
@@ -22,7 +22,7 @@ public class ConsultasSeleccionar extends Conexion{
      * @return
      */
     public String[][] getEmpleados() {
-        String[][] empleados = this.seleccionar("EMPLEADOS", "NOMBRE,APELLIDOS,DIRECCION,TELEFONO,CATEGORIA_EMPLEADO",
+        String[][] empleados = this.seleccionar("EMPLEADOS", "ID_EMPLEADO,NOMBRE,APELLIDOS,DIRECCION,TELEFONO,CATEGORIA_EMPLEADO",
                 null, "ID_EMPLEADO");
         return empleados;
     }
@@ -32,12 +32,18 @@ public class ConsultasSeleccionar extends Conexion{
      * @return
      */
     public String[][] getTalleres() {
-        String[][] talleres = this.seleccionar("TALLERES", "NOMBRE,TIPO_TALLER,DIRECCION,TELEFONO,HORARIO,EMPLEADO", null, null);
+        String[][] talleres = this.seleccionar("TALLERES", "NOMBRE,TIPO_TALLER,DIRECCION,TELEFONO,HORARIO,EMPLEADO",
+                null, null);
         return talleres;
     }
 
     public String[] getNombresColsEmpleados() {
         String[] nombres = this.seleccionarNombresCols("EMPLEADOS");
         return nombres;
+    }
+
+    public String[][] getContraseniaAdministrador() {
+        String[][] contrasenia = this.seleccionar("USUARIOS", "CONTRASENIA", "CATEGORIA='ADMINISTRADOR'", null);
+        return contrasenia;
     }
 }

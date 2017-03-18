@@ -1,4 +1,4 @@
-package unileon.tfm.cbf.ayuda;
+package ayuda;
 
 import java.io.File;
 import java.net.MalformedURLException;

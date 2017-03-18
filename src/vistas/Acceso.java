@@ -1,7 +1,7 @@
-package unileon.tfm.cbf.codigo.vistas;
+package vistas;
 
-import unileon.tfm.cbf.ayuda.CrearAyuda;
-import unileon.tfm.cbf.baseDatos.ConsultasBD.ConsultasSeleccionar;
+import ayuda.CrearAyuda;
+import bbdd.consultas.ConsultasSeleccionar;
 
 import javax.swing.*;
 import java.awt.event.*;

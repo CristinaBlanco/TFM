@@ -1,8 +1,7 @@
-package unileon.tfm.cbf.baseDatos;
+package bbdd;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Esta clase se encarga de conectar, desconectar y enviar consultas a la base de datos.

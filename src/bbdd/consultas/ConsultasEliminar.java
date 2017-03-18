@@ -1,6 +1,6 @@
-package unileon.tfm.cbf.baseDatos.ConsultasBD;
+package bbdd.consultas;
 
-import unileon.tfm.cbf.baseDatos.Conexion;
+import bbdd.Conexion;
 
 /**
  * Esta clase sirve para enviar todas las sentencias de eliminar datos a la base de datos.

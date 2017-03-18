@@ -1,6 +1,6 @@
-package unileon.tfm.cbf.baseDatos.ConsultasBD;
+package bbdd.consultas;
 
-import unileon.tfm.cbf.baseDatos.Conexion;
+import bbdd.Conexion;
 
 /**
  * Esta clase se utiliza para enviar las sentencias de insertar datos en la base de datos.

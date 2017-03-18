@@ -1,4 +1,4 @@
-package unileon.tfm.cbf.baseDatos;
+package bbdd;
 
 /** Esta clase se utiliza para crear una copia de seguridad de todos los datos almacenados en la base de datos.
  * Created by Cristina Blanco Fernandez.

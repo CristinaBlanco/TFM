@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="unileon.tfm.cbf.codigo.vistas.Principal">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="vistas.Principal">
   <grid id="27dc6" binding="panelBase" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="20" y="20" width="514" height="392"/>
@@ -12,66 +12,14 @@
       <color color="-16382458"/>
     </border>
     <children>
-      <grid id="54a20" binding="panelMenu" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="54a20" binding="panelMenu" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="North"/>
         <properties/>
         <border type="none">
           <color color="-773060"/>
         </border>
-        <children>
-          <grid id="28eb1" binding="panelBotones" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="6" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="49331" class="javax.swing.JButton" binding="button1" default-binding="true">
-                <constraints/>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-              <component id="125cb" class="javax.swing.JButton" binding="button2" default-binding="true">
-                <constraints/>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-              <component id="95945" class="javax.swing.JButton" binding="button3" default-binding="true">
-                <constraints/>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-              <component id="fdb60" class="javax.swing.JButton" binding="button4" default-binding="true">
-                <constraints/>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-              <component id="17e5" class="javax.swing.JButton" binding="button5" default-binding="true">
-                <constraints/>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-              <component id="c350c" class="javax.swing.JButton" binding="button6" default-binding="true">
-                <constraints/>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-              <component id="561a6" class="javax.swing.JButton" binding="button7" default-binding="true">
-                <constraints/>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-        </children>
+        <children/>
       </grid>
       <grid id="760dd" binding="panelInferior" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
         <constraints border-constraint="South"/>
