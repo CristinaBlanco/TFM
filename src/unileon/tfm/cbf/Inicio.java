@@ -1,8 +1,6 @@
 package unileon.tfm.cbf;
 
-import unileon.tfm.cbf.baseDatos.Conexion;
-import unileon.tfm.cbf.baseDatos.ConsultasBD.ConsultasSeleccionar;
-import unileon.tfm.cbf.vistas.Acceso;
+import unileon.tfm.cbf.codigo.vistas.Acceso;
 
 /**
  * Created by Cristina Blanco Fernandez.

@@ -1,12 +1,10 @@
-package unileon.tfm.cbf.vistas.internas.consultasCaja;
+package unileon.tfm.cbf.codigo.vistas.ventanasInternas.consultasCaja;
 
 import unileon.tfm.cbf.baseDatos.ConsultasBD.ConsultasSeleccionar;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import java.awt.*;
 
 /**
  * //todo

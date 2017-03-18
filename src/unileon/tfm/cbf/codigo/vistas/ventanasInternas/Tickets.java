@@ -1,4 +1,4 @@
-package unileon.tfm.cbf.vistas.internas;
+package unileon.tfm.cbf.codigo.vistas.ventanasInternas;
 
 import javax.swing.*;
 

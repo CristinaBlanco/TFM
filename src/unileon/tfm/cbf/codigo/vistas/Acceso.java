@@ -1,4 +1,4 @@
-package unileon.tfm.cbf.vistas;
+package unileon.tfm.cbf.codigo.vistas;
 
 import unileon.tfm.cbf.ayuda.CrearAyuda;
 import unileon.tfm.cbf.baseDatos.ConsultasBD.ConsultasSeleccionar;

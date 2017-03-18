@@ -1,14 +1,17 @@
-package unileon.tfm.cbf.vistas;
+package unileon.tfm.cbf.codigo.vistas;
 
-import unileon.tfm.cbf.controladores.PrincipalControlador;
-import unileon.tfm.cbf.vistas.internas.consultasCaja.ConsultarEmpleados;
+import unileon.tfm.cbf.codigo.controladores.PrincipalControlador;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 /**
@@ -95,16 +98,29 @@ public class Principal extends JFrame {
     }
 
     private void rellenarPanelCentral(){
+
         JDesktopPane panelCentral = new JDesktopPane();
         panelCentral.setBackground(Color.gray);
         this.getContentPane().add(panelCentral);
 
-        //FormularioInternoPruebas form = new FormularioInternoPruebas();
+        BufferedImage myPicture = null;
+        try {
+            myPicture = ImageIO.read(new File("./imagenes/cascanueces.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+        panelCentral.add(picLabel);
+        //ImageIcon imgCascanueces = new ImageIcon("../imagenes/cascanueces.jpg");
+       // panelCentral.add(imgCascanueces);
+
+
+        /*//FormularioInternoPruebas form = new FormularioInternoPruebas();
         ConsultarEmpleados form = new ConsultarEmpleados();
         form.setClosable(false);
         form.toFront();
         form.setVisible(true);
-        panelCentral.add(form);
+        panelCentral.add(form);*/
     }
 
 }
