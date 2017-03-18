@@ -12,7 +12,7 @@ public class ConsultasActualizar extends Conexion{
      * todo
      */
     public boolean actDatosEmpleados(String columna, String nuevoValor, String idEmpSelecc) {
-        boolean actualizado = this.actualizar("EMPLEADOS", columna, nuevoValor,
+        boolean actualizado = this.actualizar("EMPLEADOS", columna, "'" + nuevoValor + "'",
                 "ID_EMPLEADO='" + idEmpSelecc + "'");
         return actualizado;
     }

@@ -31,6 +31,7 @@ public class Principal extends JFrame {
         super("Cascanueces");
         this.setContentPane(panelBase);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        //this.setMinimumSize(new Dimension(400,200));
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.pack();
         //cuando se intente cerrar la ventana con la X

@@ -271,7 +271,7 @@ public class Conexion {
      */
     public boolean actualizar(String tabla, String columna, String valor, String condicion) {
         boolean actualizado = false;
-        String sentenciaActualizar = " UPDATE " + tabla + " SET " + columna + "=" + valor + " where " + condicion;
+        String sentenciaActualizar = " UPDATE " + tabla + " SET " + columna + " = " + valor + " where " + condicion;
         try {
             PreparedStatement pstm = this.conexion.prepareStatement(sentenciaActualizar);
             Throwable throwableAct = null;

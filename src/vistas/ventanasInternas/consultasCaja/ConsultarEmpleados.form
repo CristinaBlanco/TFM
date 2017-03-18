@@ -33,12 +33,6 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="519e2" class="javax.swing.JButton" binding="btnEditar">
-            <constraints/>
-            <properties>
-              <text value="Editar"/>
-            </properties>
-          </component>
           <hspacer id="36554">
             <constraints/>
           </hspacer>

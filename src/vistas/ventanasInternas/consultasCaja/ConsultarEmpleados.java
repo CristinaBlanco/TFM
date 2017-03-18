@@ -7,20 +7,19 @@ import modelosTablas.ModeloTablaNoEditable;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
  * //todo
+ * TODO LO QUE ESTA COMENTADO ES POR SI AL FINAL DECIDO QUE PARA CAMBIAR DATOS DE EMPLEADOS HAY QUE METER LA CONTRASENIA DEL ADMIN
  */
 public class ConsultarEmpleados extends JInternalFrame {
 
     private JPanel panelCentral;
     private JTable tablaEmpleados;
     private JPanel panelBotones;
-    private JButton btnEditar;
+    //private JButton btnEditar;
 
     public ConsultarEmpleados() {
         BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
@@ -35,28 +34,34 @@ public class ConsultarEmpleados extends JInternalFrame {
         rellenarTablaEmpleados();
     }
 
-    /**
+   /* /**
      * //todo
      */
     private void crearEventosIniciales() {
-        this.btnEditar.setEnabled(false);
+        //this.btnEditar.setEnabled(false);
 
         this.tablaEmpleados.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                if(tablaEmpleados.getSelectedColumn() > 0) {
-                    btnEditar.setEnabled(true);
-                }
+                //super.mouseClicked(e);
+                //if(e.getClickCount() > 1)
 
+                    editarDatosEmpleados();
             }
         });
+
+        //para asignar la tecla F1 al boton de editar
+        /*this.btnEditar.getInputMap(btnEditar.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "editar");
+        this.btnEditar.getActionMap().put("editar", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) { solicitarContraseniaAdmin(); }
+        });
+
         this.btnEditar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 solicitarContraseniaAdmin();
             }
-        });
+        });*/
     }
 
     /**
@@ -95,37 +100,45 @@ public class ConsultarEmpleados extends JInternalFrame {
     /**
      * todo
      */
-    private void solicitarContraseniaAdmin() {
+    /*private void solicitarContraseniaAdmin() {
         ConsultasSeleccionar consultas = new ConsultasSeleccionar();
         consultas.conectar();
         String[][] contraAdmin = consultas.getContraseniaAdministrador();
         consultas.desconectar();
-        System.out.print(contraAdmin.length);
 
-        JPasswordField contraAdminEscrita = new JPasswordField("Introduzca la contrasña del administrador:");
+        String contraAdminEscrita = JOptionPane.showInputDialog("Introduzca la contraseña del administrador:");
+
         if(contraAdmin[0][0].equals(contraAdminEscrita)) {
             editarDatosEmpleados();
         }
         else {
             JOptionPane.showMessageDialog(this,
-                    "La contraseña introducida es incorrecta.No puede cambiar los datos.");
+                    "La contraseña introducida es incorrecta. No puede cambiar los datos.");
         }
-    }
+    }*/
 
     /**
      * todo
      */
     private void editarDatosEmpleados() {
-        int columnaSelecc = this.tablaEmpleados.getSelectedColumn();
-        int filaSelecc = this.tablaEmpleados.getSelectedRow();
-        String idEmpSelecc = this.tablaEmpleados.getValueAt(0, columnaSelecc).toString();
-        String nombreColSelecc = this.tablaEmpleados.getColumnName(columnaSelecc);
-        String nuevoDato = this.tablaEmpleados.getValueAt(filaSelecc,columnaSelecc).toString();
+        if(this.tablaEmpleados.isEditing()) {
+            int columnaSelecc = this.tablaEmpleados.getSelectedColumn();
+            int filaSelecc = this.tablaEmpleados.getSelectedRow();
+            String idEmpSelecc = this.tablaEmpleados.getValueAt(filaSelecc, 0).toString();
+            String nombreColSelecc = this.tablaEmpleados.getColumnName(columnaSelecc);
+            String nuevoDato = this.tablaEmpleados.getValueAt(filaSelecc, columnaSelecc).toString();
 
-        ConsultasActualizar consultas = new ConsultasActualizar();
-        consultas.conectar();
-        boolean ok = consultas.actDatosEmpleados(nombreColSelecc, nuevoDato, idEmpSelecc);
-        consultas.desconectar();
-        System.out.println(ok);
-    }
+            ConsultasActualizar consultas = new ConsultasActualizar();
+            consultas.conectar();
+            boolean oky = consultas.actDatosEmpleados(nombreColSelecc, nuevoDato, idEmpSelecc);
+            consultas.desconectar();
+            // System.out.print(oky);
+
+            crearTablaEmpleados();
+            rellenarTablaEmpleados();
+        }
+        else {
+            System.out.print("caca podrida");
+        }
+        }
 }

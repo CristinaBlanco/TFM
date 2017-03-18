@@ -43,7 +43,7 @@ public class ConsultasSeleccionar extends Conexion{
     }
 
     public String[][] getContraseniaAdministrador() {
-        String[][] contrasenia = this.seleccionar("USUARIOS", "CONTRASENIA", "CATEGORIA='ADMINISTRADOR'", null);
+        String[][] contrasenia = this.seleccionar("USUARIOS", "CONTRASENIA", "CATEGORIA='Administrador'", null);
         return contrasenia;
     }
 }
