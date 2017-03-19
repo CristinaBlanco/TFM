@@ -9,8 +9,8 @@ public class ModeloTablaNoEditable extends DefaultTableModel {
 
     public boolean isCellEditable(int row, int column) {
         //no se puede editar la primera columna
-        if (column == 0)
+        //if (column == 0)
           return false;
-        return true;
+        //return true;
     }
 }

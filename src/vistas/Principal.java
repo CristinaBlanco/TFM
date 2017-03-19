@@ -2,6 +2,7 @@ package vistas;
 
 import controladores.PrincipalControlador;
 import vistas.ventanasInternas.consultasCaja.ConsultarEmpleados;
+import vistas.ventanasInternas.consultasCaja.ConsultarTalleres;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,9 +32,9 @@ public class Principal extends JFrame {
         super("Cascanueces");
         this.setContentPane(panelBase);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        //this.setMinimumSize(new Dimension(400,200));
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.pack();
+
         //cuando se intente cerrar la ventana con la X
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -51,7 +52,7 @@ public class Principal extends JFrame {
 
         rellenarFechaHora();
         rellenarMenu();
-        rellenarPanelCentral();
+        rellenarPanelCentral(0);
         this.setVisible(true);
     }
 
@@ -85,42 +86,69 @@ public class Principal extends JFrame {
         barraMenu.add(menuCaja);
         barraMenu.add(menuAyuda);
 
+        JMenuItem verEmpleados = new JMenuItem("Ver Empleados");
+        JMenuItem verTalleres = new JMenuItem("Ver Talleres");
+        menuCaja.add(verEmpleados);
+        menuCaja.add(verTalleres);
 
-        JMenuItem apertura = new JMenuItem("Apertura");
         JMenuItem cierre = new JMenuItem("Cierre");
-        menuCaja.add(apertura);
         menuTickets.add(cierre);
+
         this.setJMenuBar(barraMenu);
+
+        verEmpleados.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("estoy en empleados");
+                rellenarPanelCentral(1);
+            }
+        });
+        verTalleres.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("estoy en talleres");
+                rellenarPanelCentral(2);
+            }
+        });
     }
 
     /**
      * todo
      */
-    private void rellenarPanelCentral(){
+    private void rellenarPanelCentral(int seleccion){
         JDesktopPane panelCentral = new JDesktopPane();
         panelCentral.setBackground(Color.gray);
         this.getContentPane().add(panelCentral);
 
-        //por defecto, al no seleccionar ninguna opcion, que aparezca la img de fondo
-        /*BufferedImage wPic = null;
-        try {
-            wPic = ImageIO.read(this.getClass().getResource("cascanueces.jpg"));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(seleccion == 0) {
+            //img de fondo
         }
-        JLabel wIcon = new JLabel(new ImageIcon(wPic));
+        else if(seleccion == 1) {
+            System.out.println("entro en seleccion 1");
+            ConsultarEmpleados form = new ConsultarEmpleados();
+            panelCentral.removeAll();
+            panelCentral.add(form);
+            panelCentral.moveToFront(form);
+            form.setClosable(false);
+            form.toFront();
+            form.setVisible(true);
+           // panelCentral.removeAll();
 
-        panelCentral.add(wIcon);
-
-        //ImageIcon imgCascanueces = new ImageIcon("../imagenes/cascanueces.jpg");
-       // panelCentral.add(imgCascanueces);*/
-
+            //panelCentral.repaint();
+        } else if(seleccion == 2){
+            System.out.println("entro en seleccion 2");
+            ConsultarTalleres form = new ConsultarTalleres();
+            form.setClosable(false);
+            form.toFront();
+            form.setVisible(true);
+            panelCentral.add(form);
+        }
 
         //FormularioInternoPruebas form = new FormularioInternoPruebas();
-        ConsultarEmpleados form = new ConsultarEmpleados();
+        /*ConsultarEmpleados form = new ConsultarEmpleados();
         form.setClosable(false);
         form.toFront();
         form.setVisible(true);
-        panelCentral.add(form);
+        panelCentral.add(form);*/
     }
 }

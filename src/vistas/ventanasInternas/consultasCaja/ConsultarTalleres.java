@@ -13,62 +13,48 @@ import java.awt.event.MouseEvent;
 /**
  * Esta clase consulta e imprime en la tabla correspondiente, los empleados que existen en la aplicacion.
  */
-public class ConsultarEmpleados extends JInternalFrame {
+public class ConsultarTalleres extends JInternalFrame {
 
     private JPanel panelCentral;
-    private JTable tablaEmpleados;
+    private JTable tablaTalleres;
 
-    public ConsultarEmpleados() {
+    public ConsultarTalleres() {
         BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
         bi.setNorthPane(null);
 
         this.setContentPane(this.panelCentral);
-
         this.setVisible(true);
         this.pack();
 
         crearEventosIniciales();
-        crearTablaEmpleados();
-        rellenarTablaEmpleados();
+        crearTablaTalleres();
+        rellenarTablaTalleres();
     }
 
     /**
      * Asigna un evento a la tabla para que el clic que se haga en ella responda.
      */
     private void crearEventosIniciales() {
-        this.tablaEmpleados.addMouseListener(new MouseAdapter() {
+        this.tablaTalleres.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(e.getClickCount() > 1)
-                    editarDatosEmpleados();
+                    editarDatosTalleres();
             }
         });
-
-        //para asignar la tecla F1 al boton de editar
-        /*this.btnEditar.getInputMap(btnEditar.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "editar");
-        this.btnEditar.getActionMap().put("editar", new AbstractAction() {
-            public void actionPerformed(ActionEvent e) { solicitarContraseniaAdmin(); }
-        });
-
-        this.btnEditar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                solicitarContraseniaAdmin();
-            }
-        });*/
     }
 
     /**
      * Crea el modelo de la tabla con el nombre de las columnas y se lo asigna a la tabla.
      */
-    private void crearTablaEmpleados() {
+    private void crearTablaTalleres() {
         ConsultasSeleccionar consulta = new ConsultasSeleccionar();
         consulta.conectar();
         String[] nombresCols = consulta.getNombresColsEmpleados();
         consulta.desconectar();
 
         ModeloTablaNoEditable modelo = new ModeloTablaNoEditable();
-        this.tablaEmpleados.setModel(modelo);
+        this.tablaTalleres.setModel(modelo);
 
         for (int i = 0; i < nombresCols.length; i++) {
             modelo.addColumn(nombresCols[i]);
@@ -78,35 +64,35 @@ public class ConsultarEmpleados extends JInternalFrame {
     /**
      * Rellena la tabla con los datos existentes en la base de datos.
      */
-    private void rellenarTablaEmpleados() {
+    private void rellenarTablaTalleres() {
         ConsultasSeleccionar consulta = new ConsultasSeleccionar();
         consulta.conectar();
-        String[][] datosEmpleados = consulta.getEmpleados();
+        String[][] datosTalleres = consulta.getTalleres();
         consulta.desconectar();
 
-        DefaultTableModel modelo = (DefaultTableModel)this.tablaEmpleados.getModel();
+        DefaultTableModel modelo = (DefaultTableModel)this.tablaTalleres.getModel();
 
-        for(int i = 0; i < datosEmpleados.length; i++) {
-            modelo.addRow(datosEmpleados[i]);
+        for(int i = 0; i < datosTalleres.length; i++) {
+            modelo.addRow(datosTalleres[i]);
         }
     }
 
     /**
-     * Cambia a peticion del usuario, datos sobre los empleados.
+     * Cambia a peticion del usuario, datos sobre los talleres.
      */
-    private void editarDatosEmpleados() {
-        int columnaSelecc = this.tablaEmpleados.getSelectedColumn();
-        int filaSelecc = this.tablaEmpleados.getSelectedRow();
-        String idEmpSelecc = this.tablaEmpleados.getValueAt(filaSelecc, 0).toString();
-        String nombreColSelecc = this.tablaEmpleados.getColumnName(columnaSelecc);
+    private void editarDatosTalleres() {
+        int columnaSelecc = this.tablaTalleres.getSelectedColumn();
+        int filaSelecc = this.tablaTalleres.getSelectedRow();
+        String nombreTallerSelecc = this.tablaTalleres.getValueAt(filaSelecc, 0).toString();
+        String nombreColSelecc = this.tablaTalleres.getColumnName(columnaSelecc);
         String nuevoDato = JOptionPane.showInputDialog("Introduzca el nuevo dato para " + nombreColSelecc);
 
         ConsultasActualizar consultas = new ConsultasActualizar();
         consultas.conectar();
-        consultas.actEmpleados(nombreColSelecc, nuevoDato, idEmpSelecc);
+        consultas.actEmpleados(nombreColSelecc, nuevoDato, nombreTallerSelecc);
         consultas.desconectar();
 
-        crearTablaEmpleados();
-        rellenarTablaEmpleados();
+        crearTablaTalleres();
+        rellenarTablaTalleres();
     }
 }
