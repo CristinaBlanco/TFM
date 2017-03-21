@@ -53,7 +53,6 @@ public class Conexion {
     }
 
     /**
-     * //TODO
      *
      * @param tabla
      * @param order
@@ -99,13 +98,12 @@ public class Conexion {
     }
 
     /**
-     * //TODO
-     *
-     * @param tabla
-     * @param columna
-     * @param where
-     * @param order
-     * @return
+     * Obtiene los datos solicitados de la tabla
+     * @param tabla nombre de la tabla de la que obtener los datos
+     * @param columna nombre de la/s columnas de las que se requieren datos
+     * @param where parametro que indica la condicion de cuando se deben obtener los datos
+     * @param order parametro que indica el orden en el que obtener esos datos
+     * @return matriz de dos dimensiones con los datos solicitados
      */
     public String[][] seleccionar(String tabla, String columna, String where, String order) {
         int registros = 0;
@@ -181,6 +179,11 @@ public class Conexion {
         return data;
     }
 
+    /**
+     * Obtiene los nombres de las columnas de la tabla indicada.
+     * @param tabla nombre de la tabla de la que obtener las columnas
+     * @return matriz de una dimension con los nombres de las columnas
+     */
     public String[] seleccionarNombresCols(String tabla) {
         String[] nombresCols = null;
         String q = ("SELECT column_name FROM all_tab_columns WHERE table_name = '" + tabla + "'");

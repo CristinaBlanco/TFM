@@ -18,27 +18,38 @@ public class ConsultasSeleccionar extends Conexion{
     }
 
     /**
-     * //TODO
-     * @return
+     * Obtiene todos los empleados actuales, asi como todos sus datos almacenados
+     * @return matriz de dos dimensiones con los datos ordenados por el id del empleado
      */
     public String[][] getEmpleados() {
-        String[][] empleados = this.seleccionar("EMPLEADOS", "ID_EMPLEADO,NOMBRE,APELLIDOS,DIRECCION,TELEFONO,CATEGORIA_EMPLEADO",
-                null, "ID_EMPLEADO");
+        String[][] empleados = this.seleccionarTodo("EMPLEADOS", "ID_EMPLEADO");
         return empleados;
     }
 
     /**
-     * //TODO
-     * @return
+     * Obtiene todos los talleres actuales, asi como todos sus datos correspondientes
+     * @return matriz de dos dimensiones con los datos ordenados por el nombre del taller
      */
     public String[][] getTalleres() {
-        String[][] talleres = this.seleccionar("TALLERES", "NOMBRE,TIPO_TALLER,DIRECCION,TELEFONO,HORARIO,EMPLEADO",
-                null, null);
+        String[][] talleres = this.seleccionarTodo("TALLERES", "NOMBRE");
         return talleres;
     }
 
+    /**
+     * Obtiene los nombres de las columnas de los empleados, es decir, el tipo de datos almacenados.
+     * @return matriz de una dimension con los datos solicitados.
+     */
     public String[] getNombresColsEmpleados() {
         String[] nombres = this.seleccionarNombresCols("EMPLEADOS");
+        return nombres;
+    }
+
+    /**
+     * Obtiene los nombres de las columnas de los talleres, es decir, el tipo de datos almacenados.
+     * @return matriz de una dimension con los datos solicitados.
+     */
+    public String[] getNombresColsTalleres() {
+        String[] nombres = this.seleccionarNombresCols("TALLERES");
         return nombres;
     }
 

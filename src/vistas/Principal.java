@@ -1,8 +1,7 @@
 package vistas;
 
-import controladores.PrincipalControlador;
-import vistas.ventanasInternas.consultasCaja.ConsultarEmpleados;
-import vistas.ventanasInternas.consultasCaja.ConsultarTalleres;
+import vistas.ventanasInternas.consultasCaja.CierreCaja;
+import vistas.ventanasInternas.consultasPersonal.ConsultarEmpTaller;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import static controladores.PrincipalControlador.llamarCalculadora;
+import static controladores.PrincipalControlador.obtenerFecha;
 
 /**
  * Created by Cristina Blanco Fernandez.
@@ -22,11 +23,14 @@ public class Principal extends JFrame {
     private JPanel panelLateral;
     private JButton botonCalculadora;
     private JButton button9;
-    private JButton button10;
+    private JButton btnCambiarJPanel;
     private JButton button11;
     private JButton button12;
     private JFormattedTextField campoFecha;
-    private JFormattedTextField formattedTextField1;
+
+    private final static String EMPLEADOS = "empleados";
+    private final static String TALLERES = "talleres";
+    private final static String CIERRE = "cierre";
 
     public Principal(){
         super("Cascanueces");
@@ -46,18 +50,18 @@ public class Principal extends JFrame {
         botonCalculadora.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PrincipalControlador.llamarCalculadora();
+                llamarCalculadora();
             }
         });
 
         rellenarFechaHora();
         rellenarMenu();
-        rellenarPanelCentral(0);
+        imgFondoPanelCentral();
         this.setVisible(true);
     }
 
     /**
-     * todo
+     * Muestra el mensaje al usuario para comprobar que desea cerrar la aplicacion
      */
     private void onCancelar() {
         int cerrar = JOptionPane.showConfirmDialog(this, "¿Desea cerrar la aplicación?");
@@ -70,12 +74,12 @@ public class Principal extends JFrame {
      * todo
      */
     private void rellenarFechaHora() {
-        String fecha = PrincipalControlador.obtenerFecha();
+        String fecha = obtenerFecha();
         this.campoFecha.setText(fecha);
     }
 
     /**
-     * todo
+     * Crea el menu para la ventana con las distintas opciones a elegir.
      */
     private void rellenarMenu() {
         JMenuBar barraMenu = new JMenuBar();
@@ -98,57 +102,57 @@ public class Principal extends JFrame {
 
         verEmpleados.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("estoy en empleados");
-                rellenarPanelCentral(1);
-            }
+            public void actionPerformed(ActionEvent e) { rellenarPanelCentral(EMPLEADOS); }
         });
         verTalleres.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("estoy en talleres");
-                rellenarPanelCentral(2);
-            }
+            public void actionPerformed(ActionEvent e) { rellenarPanelCentral(TALLERES); }
         });
+
+        cierre.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) { rellenarPanelCentral(CIERRE); }
+        });
+    }
+
+    /**
+     * Rellena el panel central en funcion de la opcion elegida
+     */
+    private void rellenarPanelCentral(String opcion) {
+        JDesktopPane panelCentral = new JDesktopPane();
+        this.getContentPane().remove(3);
+        this.getContentPane().add(panelCentral);
+        this.getContentPane().revalidate();
+        this.repaint();
+
+        if(opcion.equals(EMPLEADOS)) {
+            ConsultarEmpTaller form = new ConsultarEmpTaller(EMPLEADOS);
+            form.setClosable(false);
+            form.toFront();
+            form.setVisible(true);
+            panelCentral.add(form);
+        } else if(opcion.equals(TALLERES)) {
+            ConsultarEmpTaller form = new ConsultarEmpTaller(TALLERES);
+            form.setClosable(false);
+            form.toFront();
+            form.setVisible(true);
+            panelCentral.add(form);
+        } else if(opcion.equals(CIERRE)) {
+            CierreCaja form = new CierreCaja();
+            form.setClosable(false);
+            form.toFront();
+            form.setVisible(true);
+            panelCentral.add(form);
+        }
     }
 
     /**
      * todo
      */
-    private void rellenarPanelCentral(int seleccion){
+    private void imgFondoPanelCentral(){
         JDesktopPane panelCentral = new JDesktopPane();
         panelCentral.setBackground(Color.gray);
         this.getContentPane().add(panelCentral);
-
-        if(seleccion == 0) {
             //img de fondo
-        }
-        else if(seleccion == 1) {
-            System.out.println("entro en seleccion 1");
-            ConsultarEmpleados form = new ConsultarEmpleados();
-            panelCentral.removeAll();
-            panelCentral.add(form);
-            panelCentral.moveToFront(form);
-            form.setClosable(false);
-            form.toFront();
-            form.setVisible(true);
-           // panelCentral.removeAll();
-
-            //panelCentral.repaint();
-        } else if(seleccion == 2){
-            System.out.println("entro en seleccion 2");
-            ConsultarTalleres form = new ConsultarTalleres();
-            form.setClosable(false);
-            form.toFront();
-            form.setVisible(true);
-            panelCentral.add(form);
-        }
-
-        //FormularioInternoPruebas form = new FormularioInternoPruebas();
-        /*ConsultarEmpleados form = new ConsultarEmpleados();
-        form.setClosable(false);
-        form.toFront();
-        form.setVisible(true);
-        panelCentral.add(form);*/
     }
 }
